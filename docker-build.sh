@@ -1,0 +1,1 @@
+docker build . -t ntlt/ntlt.acad
