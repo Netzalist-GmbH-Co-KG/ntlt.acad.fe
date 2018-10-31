@@ -1,1 +1,1 @@
-docker build . -t ntlt/ntlt.acad
+docker build . -t ntlt/ntlt.acad.fe

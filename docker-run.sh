@@ -1,3 +1,3 @@
-docker stop ntlt-acad
-docker rm ntlt-acad
-docker run --name=ntlt-acad -d -p=80:80 ntlt/ntlt.acad
+docker stop ntlt-acad-fe
+docker rm ntlt-acad-fe
+docker run --name=ntlt-acad-fe -d -p=80:80 ntlt/ntlt.acad.fe
