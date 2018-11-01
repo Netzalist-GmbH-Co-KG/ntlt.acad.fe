@@ -15,84 +15,74 @@ exports[`renders like the last time (snapshots) 1`] = `
     <h1
       className="App-title"
     >
-      Welcome to React
+      Academy Builder
     </h1>
   </header>
   <div
-    className="badge badge-danger"
+    style={
+      Object {
+        "backgroundColor": "#222",
+        "padding": "10px",
+        "textAlign": "right",
+      }
+    }
   >
-    Not logged in
-  </div>
-  <p
-    className="App-intro"
-  >
-    0
-     To get started, edit 
-    <code>
-      src/App.tsx
-    </code>
-     and save to reload. Release 0.0.0.2 
-    2014-01-01
+    <div
+      className="badge badge-danger"
+    >
+      Not logged in
+    </div>
      
-    test3
-  </p>
-  <div>
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            Username
-          </td>
-          <td>
-            <input
-              id="username"
-              onChange={[Function]}
-              type="text"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Password
-          </td>
-          <td>
-            <input
-              id="password"
-              onChange={[Function]}
-              type="password"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td
-            colSpan={2}
-          >
-            <button
-              id="logonButton"
-              onClick={[Function]}
-            >
-              Logon
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td
-            colSpan={2}
-          >
-            <span
-              id="logonMessage"
-            >
-              "Not implemented"
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-  <button
-    onClick={[Function]}
+  <div
+    className="form-signin"
   >
-    Test
-  </button>
+    <h1
+      className="h3 mb-3 font-weight-normal"
+    >
+      Login
+    </h1>
+    <label
+      className="sr-only"
+      htmlFor="inputEmail"
+    >
+      Email address
+    </label>
+    <input
+      autoFocus={true}
+      className="form-control"
+      id="username"
+      onChange={[Function]}
+      placeholder="Email address"
+      required={true}
+      type="text"
+    />
+    <label
+      className="sr-only"
+      htmlFor="inputPassword"
+    >
+      Password
+    </label>
+    <input
+      className="form-control"
+      id="password"
+      onChange={[Function]}
+      placeholder="Password"
+      required={true}
+      type="password"
+    />
+    <button
+      className="btn btn-lg btn-primary btn-block"
+      id="logonButton"
+      onClick={[Function]}
+    >
+      Sign in
+    </button>
+    <label
+      className="badge badge-danger"
+    >
+      Not logged in
+    </label>
+  </div>
 </div>
 `;

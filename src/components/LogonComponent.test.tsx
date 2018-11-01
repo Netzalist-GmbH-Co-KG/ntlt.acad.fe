@@ -5,7 +5,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { IState } from '../IState'
+import { IState } from '../state/IState'
 import LogonComponent from './LogonComponent';
 
 let store:any = null;
@@ -15,7 +15,7 @@ beforeAll( () => {
 } )
 
 beforeEach( () =>{
-  store = createStore<IState, any, any, any>((state = { applicationStart: "2014-01-01", reducerCounter: 0, currentSession: null }, action) => state);
+  store = createStore<IState, any, any, any>((state = { demo: { applicationStart: "2014-01-01", reducerCounter: 0}, currentSession: null }, action) => state);
 });
 
 it('renders without crashing (Smoke Test)', () => {

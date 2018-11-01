@@ -5,11 +5,12 @@ import * as Redux from 'redux';
 
 import App from './App';
 import './index.css';
-import { IState } from './IState'
-import rootReducer from "./reducers/rootReducer";
+import rootReducer from "./reducers/root";
 import registerServiceWorker from './registerServiceWorker';
 
-const store = Redux.createStore<IState, any, any, any>(rootReducer);
+console.log("Starting");
+
+const store = Redux.createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -4,11 +4,12 @@ import * as Redux from 'redux';
 import * as actions from "./actions";
 import './App.css';
 
+import DemoComponent from "./components/DemoComponent";
 import LogonComponent from "./components/LogonComponent";
 import SessionInfoComponent from "./components/SessionInfoComponent";
 import logo from './logo.svg';
 
-import { IState } from './IState'
+import { IState } from './state/IState'
 
 export interface IOwnProps {
   version: string
@@ -38,15 +39,10 @@ class App extends React.Component<Props, IInternalState> {
     return (<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
+        <h1 className="App-title">Academy Builder</h1>
       </header>
-      <SessionInfoComponent />
-      <p className="App-intro">
-        {this.props.reducerCounter} To get started, edit <code>src/App.tsx</code> and save to reload.
-          Release 0.0.0.2 {this.props.applicationStart} {this.props.version}
-      </p>
-      <LogonComponent />
-      <button onClick={this.props.increaseCounter} >Test</button>
+      <SessionInfoComponent/>
+      { this.props.currentSession ? <DemoComponent /> : <LogonComponent /> }
     </div>)
   }
 }

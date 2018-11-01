@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import { create as createTestRenderer } from 'react-test-renderer';
 import { createStore } from 'redux';
 import App from './App';
-import { IState } from './IState'
+import { IState } from './state/IState'
 
 let store:any = null;
 
 beforeEach( () =>{
-  store = createStore<IState, any, any, any>((state = { applicationStart: "2014-01-01", reducerCounter: 0, currentSession: null }, action) => state);
+  store = createStore<IState, any, any, any>((state = { demo: { applicationStart: "2014-01-01", reducerCounter: 0}, currentSession: null }, action) => state);
 });
 
 

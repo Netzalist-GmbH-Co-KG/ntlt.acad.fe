@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as Redux from "redux";
 import * as actions from "../actions";
 
-import { ISession, IState } from '../IState'
+import { ISession, IState } from '../state/IState'
 
 // tslint:disable-next-line:no-empty-interface
 export interface IOwnProps {
@@ -34,37 +34,14 @@ class LogonComponent extends React.Component<Props, IInternalState> {
 
     public render() {
         return (
-            <div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Username
-                            </td>
-                            <td>
-                            <input id="username" type="text" onChange={ this.usernameChanged } />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Password
-                            </td>
-                            <td>
-                                <input id="password" type="password" onChange={ this.passwordChanged } />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td  colSpan={2}>
-                                <button id="logonButton" onClick={ this.logonClick }>Logon</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td  colSpan={2}>
-                                <span id="logonMessage">"Not implemented"</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className="form-signin">
+                <h1 className="h3 mb-3 font-weight-normal">Login</h1>
+                <label htmlFor="inputEmail" className="sr-only">Email address</label>
+                <input onChange={this.usernameChanged} type="text" id="username" className="form-control" placeholder="Email address" required={true} autoFocus={true} />
+                <label htmlFor="inputPassword" className="sr-only">Password</label>
+                <input onChange={this.passwordChanged} type="password" id="password" className="form-control" placeholder="Password" required={true} />
+                <button id="logonButton" className="btn btn-lg btn-primary btn-block" onClick={this.logonClick}>Sign in</button>
+                <label className={ !this.props.currentSession ? "badge badge-danger" : "badge badge-success"}>{this.props.currentSession ? this.props.currentSession.currentUser : "Not logged in"}</label>
             </div>
         );
     }
