@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-class LogonComponent extends React.Component<{onLogonRequest: (user:string, password:string) => void}, { logonMessage: string, username: string, password: string}> {
+interface ILogonComponentProps {
+    onLogonRequest: (user:string, password:string) => void;
+}
+
+class LogonComponent extends React.Component<ILogonComponentProps, { logonMessage: string, username: string, password: string}> {
 
     constructor(props: Readonly<{onLogonRequest: (user:string, password:string) => void}>){
         super(props);

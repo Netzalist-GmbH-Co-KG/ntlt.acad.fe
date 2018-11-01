@@ -21,11 +21,15 @@ exports[`renders like the last time (snapshots) 1`] = `
   <p
     className="App-intro"
   >
-    To get started, edit 
+    0
+     To get started, edit 
     <code>
       src/App.tsx
     </code>
-     and save to reload. Release 0.0.0.2
+     and save to reload. Release 0.0.0.2 
+    2014-01-01
+     
+    test3
   </p>
   <div>
     <table>
@@ -80,5 +84,10 @@ exports[`renders like the last time (snapshots) 1`] = `
       </tbody>
     </table>
   </div>
+  <button
+    onClick={[Function]}
+  >
+    Test
+  </button>
 </div>
 `;
