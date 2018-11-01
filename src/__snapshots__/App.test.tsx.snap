@@ -18,6 +18,11 @@ exports[`renders like the last time (snapshots) 1`] = `
       Welcome to React
     </h1>
   </header>
+  <div
+    className="badge badge-danger"
+  >
+    Not logged in
+  </div>
   <p
     className="App-intro"
   >
@@ -77,7 +82,7 @@ exports[`renders like the last time (snapshots) 1`] = `
             <span
               id="logonMessage"
             >
-              
+              "Not implemented"
             </span>
           </td>
         </tr>

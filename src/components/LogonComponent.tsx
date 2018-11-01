@@ -1,15 +1,35 @@
 import * as React from 'react';
+import { connect } from 'react-redux'
+import * as Redux from "redux";
+import * as actions from "../actions";
 
-interface ILogonComponentProps {
-    onLogonRequest: (user:string, password:string) => void;
+import { ISession, IState } from '../IState'
+
+// tslint:disable-next-line:no-empty-interface
+export interface IOwnProps {
 }
 
-class LogonComponent extends React.Component<ILogonComponentProps, { logonMessage: string, username: string, password: string}> {
+// tslint:disable-next-line:no-empty-interface
+interface IStateProps {
+    currentSession: ISession | null
+}
 
-    constructor(props: Readonly<{onLogonRequest: (user:string, password:string) => void}>){
+interface IDispatchProps {
+  tryLogon: (u: string, p: string) => void,
+}
+
+type Props = IStateProps & IDispatchProps & IOwnProps
+
+interface IInternalState {
+    username: string,
+    password: string
+}
+
+class LogonComponent extends React.Component<Props, IInternalState> {
+
+    constructor(props: Readonly<Props>){
         super(props);
-
-        this.state={ logonMessage: "", username: "", password: "" }
+        this.state = { username: "", password:""};
     }
 
     public render() {
@@ -40,7 +60,7 @@ class LogonComponent extends React.Component<ILogonComponentProps, { logonMessag
                         </tr>
                         <tr>
                             <td  colSpan={2}>
-                                <span id="logonMessage">{this.state.logonMessage}</span>
+                                <span id="logonMessage">"Not implemented"</span>
                             </td>
                         </tr>
                     </tbody>
@@ -58,9 +78,22 @@ class LogonComponent extends React.Component<ILogonComponentProps, { logonMessag
     }
 
     private logonClick = () => {
-        this.setState( { logonMessage: `OMG -${this.state.username}- -${this.state.password}-` });
-        this.props.onLogonRequest(this.state.username, this.state.password);
+        this.props.tryLogon(this.state.username, this.state.password);
     }
 }
 
-export default LogonComponent;
+function mapStateToProps(state: IState, ownProps: IOwnProps): IStateProps {
+    return {
+      currentSession: state.currentSession,
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch: Redux.Dispatch): IDispatchProps => 
+    Redux.bindActionCreators( 
+      { 
+        tryLogon: actions.tryLogon,
+      }, dispatch)
+  
+  
+  export default connect<IStateProps, IDispatchProps, IOwnProps>
+    (mapStateToProps, mapDispatchToProps)(LogonComponent)

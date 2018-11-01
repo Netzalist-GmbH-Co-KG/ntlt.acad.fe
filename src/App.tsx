@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux'
 import * as Redux from 'redux';
+import * as actions from "./actions";
 import './App.css';
 
 import LogonComponent from "./components/LogonComponent";
 import SessionInfoComponent from "./components/SessionInfoComponent";
 import logo from './logo.svg';
 
-import IState from './IState'
+import { IState } from './IState'
 
 export interface IOwnProps {
   version: string
@@ -18,14 +19,13 @@ interface IStateProps extends IState {
 }
 
 interface IDispatchProps {
-  onSomeEvent: (command: any) => void
-  onLogonRequest: (u: string, p: string) => void
+  increaseCounter: () => void
 }
 
 type Props = IStateProps & IDispatchProps & IOwnProps
 
+// tslint:disable-next-line:no-empty-interface
 interface IInternalState {
-  internalComponentStateField: string
 }
 
 class App extends React.Component<Props, IInternalState> {
@@ -40,16 +40,15 @@ class App extends React.Component<Props, IInternalState> {
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title">Welcome to React</h1>
       </header>
-      <SessionInfoComponent session={this.props.currentSession} />
+      <SessionInfoComponent />
       <p className="App-intro">
         {this.props.reducerCounter} To get started, edit <code>src/App.tsx</code> and save to reload.
           Release 0.0.0.2 {this.props.applicationStart} {this.props.version}
       </p>
-      <LogonComponent onLogonRequest={this.props.onLogonRequest} />
-      <button onClick={this.props.onSomeEvent} >Test</button>
+      <LogonComponent />
+      <button onClick={this.props.increaseCounter} >Test</button>
     </div>)
   }
-
 }
 
 function mapStateToProps(state: IState, ownProps: IOwnProps): IStateProps {
@@ -58,10 +57,12 @@ function mapStateToProps(state: IState, ownProps: IOwnProps): IStateProps {
   }
 }
 
-const mapDispatchToProps = (dispatch: Redux.Dispatch): IDispatchProps => ({
-  onSomeEvent: (cmd) => dispatch({ type: "INCREASE_COUNTER"}),
-  onLogonRequest: (u: string, p:string) => dispatch( { type:"LOGON_REQUEST", username: u, password: p })
-});
+const mapDispatchToProps = (dispatch: Redux.Dispatch): IDispatchProps => 
+  Redux.bindActionCreators( 
+    { 
+      increaseCounter: actions.increaseCounter
+    }, dispatch)
+
 
 export default connect<IStateProps, IDispatchProps, IOwnProps>
   (mapStateToProps, mapDispatchToProps)(App)
