@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders like the last time (snapshots) 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <img
+      alt="logo"
+      className="App-logo"
+      src={undefined}
+    />
+    <h1
+      className="App-title"
+    >
+      Welcome to React
+    </h1>
+  </header>
+  <p
+    className="App-intro"
+  >
+    To get started, edit 
+    <code>
+      src/App.tsx
+    </code>
+     and save to reload. Release 0.0.0.2
+  </p>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            Username
+          </td>
+          <td>
+            <input
+              id="username"
+              onChange={[Function]}
+              type="text"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Password
+          </td>
+          <td>
+            <input
+              id="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <button
+              id="logonButton"
+              onClick={[Function]}
+            >
+              Logon
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <span
+              id="logonMessage"
+            >
+              
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

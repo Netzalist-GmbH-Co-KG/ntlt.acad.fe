@@ -1,9 +1,11 @@
 import * as React from 'react';
 import './App.css';
 
+import LogonComponent from "./components/LogonComponent";
 import logo from './logo.svg';
 
 class App extends React.Component {
+
   public render() {
     return (
       <div className="App">
@@ -15,9 +17,12 @@ class App extends React.Component {
           To get started, edit <code>src/App.tsx</code> and save to reload.
           Release 0.0.0.2
         </p>
+        <LogonComponent onLogonRequest={this.onLogonRequest} />
       </div>
     );
   }
+
+  private onLogonRequest = (u: string, p:string) => { return; }
 }
 
 export default App;

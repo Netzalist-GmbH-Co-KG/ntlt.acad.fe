@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders like the last time (snapshots) 1`] = `
+<LogonComponent
+  onLogonRequest={[Function]}
+>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            Username
+          </td>
+          <td>
+            <input
+              id="username"
+              onChange={[Function]}
+              type="text"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Password
+          </td>
+          <td>
+            <input
+              id="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <button
+              id="logonButton"
+              onClick={[Function]}
+            >
+              Logon
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <span
+              id="logonMessage"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</LogonComponent>
+`;
+
+exports[`renders like the last time (snapshots) 2`] = `
+<LogonComponent
+  onLogonRequest={[Function]}
+>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            Username
+          </td>
+          <td>
+            <input
+              id="username"
+              onChange={[Function]}
+              type="text"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Password
+          </td>
+          <td>
+            <input
+              id="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <button
+              id="logonButton"
+              onClick={[Function]}
+            >
+              Logon
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <span
+              id="logonMessage"
+            >
+              OMG -- --
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</LogonComponent>
+`;
+
+exports[`renders like the last time (snapshots) 3`] = `
+<LogonComponent
+  onLogonRequest={[Function]}
+>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            Username
+          </td>
+          <td>
+            <input
+              id="username"
+              onChange={[Function]}
+              type="text"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Password
+          </td>
+          <td>
+            <input
+              id="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <button
+              id="logonButton"
+              onClick={[Function]}
+            >
+              Logon
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            colSpan={2}
+          >
+            <span
+              id="logonMessage"
+            >
+              OMG -user- -password-
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</LogonComponent>
+`;
