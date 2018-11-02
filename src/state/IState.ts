@@ -1,5 +1,6 @@
 export interface ISession {
     isLoggedIn: boolean,
+    logOnInProgress: boolean,
     sessionStart: Date | null,
     sessionId: string | null,
     currentUser: string | null,

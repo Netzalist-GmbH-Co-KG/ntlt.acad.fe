@@ -27,26 +27,10 @@ exports[`renders like the last time (snapshots) 1`] = `
       }
     }
   >
-    <div>
-      <div
-        className="badge badge-success"
-        style={
-          Object {
-            "textAlign": "right",
-          }
-        }
-      />
-      <button
-        className="btn btn-link small"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "White",
-          }
-        }
-      >
-        Logout
-      </button>
+    <div
+      className="badge badge-danger"
+    >
+      Not logged in
     </div>
      
   </div>
@@ -98,5 +82,16 @@ exports[`renders like the last time (snapshots) 1`] = `
       className="badge badge-danger"
     />
   </div>
+  <button
+    className="btn btn-link"
+    onClick={[Function]}
+    style={
+      Object {
+        "fontSize": "9px",
+      }
+    }
+  >
+    Show Logs
+  </button>
 </div>
 `;

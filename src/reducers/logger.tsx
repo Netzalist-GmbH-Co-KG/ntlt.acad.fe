@@ -22,9 +22,6 @@ const logger = (state: ILogger = initialState, action: Redux.Action<string>): IL
         case actions.ACTION_ENABLE_LOGS:
             newState = Object.assign( {}, state, { active: true });
             break;
-        case actions.ACTION_DISABLE_LOGS:
-            newState = Object.assign( {}, state, { active: false });
-            break;
         default:
            newState = state;
     }
@@ -35,10 +32,14 @@ const logger = (state: ILogger = initialState, action: Redux.Action<string>): IL
     console.log(newLogLine);
 
     if(newState.logs.length>1000) {
-        return Object.assign({}, newState, { logs:  [...newState.logs.slice(2), newLogLine ] })
+        newState = Object.assign({}, newState, { logs:  [...newState.logs.slice(2), newLogLine ] })
     } else {
-        return Object.assign({}, newState, { logs:  [...newState.logs, newLogLine] })
+        newState = Object.assign({}, newState, { logs:  [...newState.logs, newLogLine] })
     }
+
+    if (action.type === actions.ACTION_DISABLE_LOGS) { newState = Object.assign( {}, newState, { active: false })};
+
+    return newState;
 
 };
 

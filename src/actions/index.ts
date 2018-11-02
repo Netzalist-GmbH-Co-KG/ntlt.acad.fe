@@ -5,14 +5,33 @@ import * as Redux from "redux";
 export const ACTION_TRY_LOGON = "TRY_LOGON";
 export interface IActionTryLogon extends Redux.Action<string>{
   username: string,
-  password: string
 }
-export const tryLogon = (username: string, password: string) => ({
+export const tryLogon = (username: string) => ({
   type: ACTION_TRY_LOGON,
   username,
-  password,
 }) as IActionTryLogon
 
+// ------------------------------------------------------------------------
+// * Logon success
+export const ACTION_LOGON_SUCCESS = "LOGON_SUCCESS";
+export interface IActionLogOnSuccess extends Redux.Action<string>{
+  username: string,
+}
+export const logOnSuccess = (username: string) => ({
+  type: ACTION_LOGON_SUCCESS,
+  username,
+}) as IActionLogOnSuccess
+
+// ------------------------------------------------------------------------
+// * Logon failed
+export const ACTION_LOGON_FAILED = "LOGON_FAILED";
+export interface IActionLogOnFailed extends Redux.Action<string>{
+  username: string,
+}
+export const logOnFailed = (username: string) => ({
+  type: ACTION_LOGON_FAILED,
+  username,
+}) as IActionLogOnFailed
 
 // ------------------------------------------------------------------------
 // * Logout

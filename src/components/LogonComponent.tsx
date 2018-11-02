@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux'
 import * as Redux from "redux";
 import * as actions from "../actions";
+import { tryLogOn } from "../services/sessionService";
 
 import { ISession, IState } from '../state/IState'
 
@@ -16,6 +17,8 @@ interface IStateProps {
 
 interface IDispatchProps {
   tryLogon: (u: string, p: string) => void,
+  logOnSuccess: (u: string) => void,
+  logOnFailed: (u: string) => void,
 }
 
 type Props = IStateProps & IDispatchProps & IOwnProps
@@ -34,14 +37,14 @@ class LogonComponent extends React.Component<Props, IInternalState> {
 
     public render() {
         return (
-            <div className="form-signin">
+            <div className="form-signin" >
                 <h1 className="h3 mb-3 font-weight-normal">Login</h1>
                 <label htmlFor="inputEmail" className="sr-only">Email address</label>
-                <input onChange={this.usernameChanged} type="text" id="username" className="form-control" placeholder="Email address" required={true} autoFocus={true} />
+                <input disabled={this.props.currentSession.logOnInProgress} onChange={this.usernameChanged} type="text" id="username" className="form-control" placeholder="Email address" required={true} autoFocus={true} />
                 <label htmlFor="inputPassword" className="sr-only">Password</label>
-                <input onChange={this.passwordChanged} type="password" id="password" className="form-control" placeholder="Password" required={true} />
-                <button id="logonButton" className="btn btn-lg btn-primary btn-block" onClick={this.logonClick}>Sign in</button>
-                <label className="badge badge-danger">{this.props.currentSession.lastLogOnErrorMessage}</label>
+                <input disabled={this.props.currentSession.logOnInProgress} onChange={this.passwordChanged} type="password" id="password" className="form-control" placeholder="Password" required={true} />
+                <button disabled={this.props.currentSession.logOnInProgress} id="logonButton" className="btn btn-lg btn-primary btn-block" onClick={this.logonClick}>Sign in</button>
+                <label className={this.props.currentSession.logOnInProgress ? "badge badge-success" : "badge badge-danger"}>{this.props.currentSession.lastLogOnErrorMessage}</label>
             </div>
         );
     }
@@ -56,6 +59,13 @@ class LogonComponent extends React.Component<Props, IInternalState> {
 
     private logonClick = () => {
         this.props.tryLogon(this.state.username, this.state.password);
+        tryLogOn(this.state.username, this.state.password)
+        .then( () => {
+            this.props.logOnSuccess(this.state.username);
+        })
+        .catch( () => {
+            this.props.logOnFailed(this.state.username);
+        });
     }
 }
 
@@ -69,6 +79,8 @@ function mapStateToProps(state: IState, ownProps: IOwnProps): IStateProps {
     Redux.bindActionCreators( 
       { 
         tryLogon: actions.tryLogon,
+        logOnSuccess: actions.logOnSuccess,
+        logOnFailed: actions.logOnFailed,
       }, dispatch)
   
   

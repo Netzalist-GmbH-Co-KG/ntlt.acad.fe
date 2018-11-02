@@ -8,6 +8,7 @@ export const initialState: IState = {
     }, 
     currentSession: {
       isLoggedIn: false,
+      logOnInProgress: false,
       currentUser: null,
       sessionId: null,
       sessionStart: null,
