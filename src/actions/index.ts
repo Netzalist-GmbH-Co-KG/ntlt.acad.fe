@@ -32,3 +32,40 @@ export interface IActionIncreaseCounter extends Redux.Action<string>{
 export const increaseCounter = () => ({
   type: ACTION_INCREASE_COUNTER,
 }) as IActionIncreaseCounter
+
+// ------------------------------------------------------------------------
+// * Show Logs
+export const ACTION_SHOW_LOGS = "SHOW_LOGS";
+export interface IActionShowLogs extends Redux.Action<string>{
+}
+export const showLogs = () => ({
+  type: ACTION_SHOW_LOGS,
+}) as IActionShowLogs
+
+// ------------------------------------------------------------------------
+// * Hide Logs
+export const ACTION_HIDE_LOGS = "HIDE_LOGS";
+export interface IActionHideLogs extends Redux.Action<string>{
+}
+export const hideLogs = () => ({
+  type: ACTION_HIDE_LOGS,
+}) as IActionHideLogs
+
+// ------------------------------------------------------------------------
+// * Enable Logs
+export const ACTION_ENABLE_LOGS = "ENABLE_LOGS";
+export interface IActionEnableLogs extends Redux.Action<string>{
+}
+export const enableLogs = () => ({
+  type: ACTION_ENABLE_LOGS,
+}) as IActionEnableLogs
+
+// ------------------------------------------------------------------------
+// * Disable Logs
+export const ACTION_DISABLE_LOGS = "DISABLE_LOGS";
+export interface IActionDisableLogs extends Redux.Action<string>{
+}
+export const disableLogs = () => ({
+  type: ACTION_DISABLE_LOGS,
+}) as IActionDisableLogs
+

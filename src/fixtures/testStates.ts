@@ -12,5 +12,10 @@ export const initialState: IState = {
       sessionId: null,
       sessionStart: null,
       lastLogOnErrorMessage: null,
-    } 
+    },
+    logger: {
+      active: false,
+      visible: false,
+      logs: [],
+    },
   }

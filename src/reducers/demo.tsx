@@ -8,7 +8,6 @@ const initialState : IDemo = {
 }
 
 const demo = (state: IDemo = initialState, action: Redux.Action<string>): IDemo => {
-  console.log(`REDUCER-DEMO: ${JSON.stringify(action)}`);
   switch (action.type) {
     case actions.ACTION_INCREASE_COUNTER:
       return increaseCounter(state, action as actions.IActionIncreaseCounter);

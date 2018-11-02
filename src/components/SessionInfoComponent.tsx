@@ -10,7 +10,7 @@ export interface IOwnProps {
 }
 
 interface IStateProps {
-    currentSession: ISession | null
+    currentSession: ISession
 }
 
 interface IDispatchProps {
@@ -31,7 +31,7 @@ class SessionInfoComponent extends React.Component<Readonly<Props>, IInternalSta
     }
 
     public render() {
-        const content = !this.props.currentSession ?
+        const content = !this.props.currentSession.isLoggedIn ?
             (<div className="badge badge-danger">Not logged in</div>)
             : (<div><div className="badge badge-success" style={{ textAlign: "right" }} >{this.props.currentSession.currentUser}</div><button style={{ color: "White" }} className="btn btn-link small" onClick={this.props.logout}>Logout</button></div>);
 

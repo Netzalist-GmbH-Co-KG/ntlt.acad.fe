@@ -34,6 +34,7 @@ const tryLogon = (state: ISession = initialState, action: actions.IActionTryLogo
     // Here we try to log in. This is an actual call to the service, so this will have to be refactored.
     if (action.username === "admin") {
         return Object.assign({}, state, {
+            isLoggedIn: true,
             currentUser: action.username,
             sessionStart: Date(),
             lastLogOnErrorMessage: null

@@ -6,6 +6,7 @@ import './App.css';
 
 import DemoComponent from "./components/DemoComponent";
 import LogonComponent from "./components/LogonComponent";
+import LoggingCompnent from "./components/LoggingCompnent";
 import SessionInfoComponent from "./components/SessionInfoComponent";
 import logo from './logo.svg';
 
@@ -43,6 +44,7 @@ class App extends React.Component<Props, IInternalState> {
       </header>
       <SessionInfoComponent/>
       { this.props.currentSession.isLoggedIn ? <DemoComponent /> : <LogonComponent /> }
+      <LoggingCompnent />
     </div>)
   }
 }

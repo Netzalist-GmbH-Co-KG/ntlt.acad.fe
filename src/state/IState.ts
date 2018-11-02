@@ -6,6 +6,12 @@ export interface ISession {
     lastLogOnErrorMessage: string | null,
 }
 
+export interface ILogger {
+    active: boolean,
+    visible: boolean,
+    logs: string[],
+}
+
 export interface IDemo {
     applicationStart: string,
     reducerCounter: number,
@@ -13,5 +19,6 @@ export interface IDemo {
 
 export interface IState {
     currentSession: ISession,
-    demo: IDemo
+    demo: IDemo,
+    logger: ILogger,
 }
