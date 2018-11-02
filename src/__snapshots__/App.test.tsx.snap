@@ -27,10 +27,26 @@ exports[`renders like the last time (snapshots) 1`] = `
       }
     }
   >
-    <div
-      className="badge badge-danger"
-    >
-      Not logged in
+    <div>
+      <div
+        className="badge badge-success"
+        style={
+          Object {
+            "textAlign": "right",
+          }
+        }
+      />
+      <button
+        className="btn btn-link small"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "White",
+          }
+        }
+      >
+        Logout
+      </button>
     </div>
      
   </div>
@@ -80,9 +96,7 @@ exports[`renders like the last time (snapshots) 1`] = `
     </button>
     <label
       className="badge badge-danger"
-    >
-      Not logged in
-    </label>
+    />
   </div>
 </div>
 `;

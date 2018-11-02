@@ -42,7 +42,7 @@ class App extends React.Component<Props, IInternalState> {
         <h1 className="App-title">Academy Builder</h1>
       </header>
       <SessionInfoComponent/>
-      { this.props.currentSession ? <DemoComponent /> : <LogonComponent /> }
+      { this.props.currentSession.isLoggedIn ? <DemoComponent /> : <LogonComponent /> }
     </div>)
   }
 }

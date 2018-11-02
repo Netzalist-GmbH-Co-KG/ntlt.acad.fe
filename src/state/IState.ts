@@ -1,14 +1,9 @@
-export const initialState: IState = {
-    demo: { 
-        applicationStart: Date(),
-        reducerCounter: 0
-    },
-    currentSession: null
-}
-
 export interface ISession {
-    currentUser: string,
-    sessionStart: Date,
+    isLoggedIn: boolean,
+    sessionStart: Date | null,
+    sessionId: string | null,
+    currentUser: string | null,
+    lastLogOnErrorMessage: string | null,
 }
 
 export interface IDemo {
@@ -17,6 +12,6 @@ export interface IDemo {
 }
 
 export interface IState {
-    currentSession: ISession | null,
+    currentSession: ISession,
     demo: IDemo
 }

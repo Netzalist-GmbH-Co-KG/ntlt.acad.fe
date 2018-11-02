@@ -5,20 +5,15 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { IState } from '../state/IState'
 import LogonComponent from './LogonComponent';
-
-let store:any = null;
+import * as TestStates from "../fixtures/testStates"
 
 beforeAll( () => {
   Enzyme.configure({ adapter: new Adapter() })
 } )
 
-beforeEach( () =>{
-  store = createStore<IState, any, any, any>((state = { demo: { applicationStart: "2014-01-01", reducerCounter: 0}, currentSession: null }, action) => state);
-});
-
 it('renders without crashing (Smoke Test)', () => {
+  const store = createStore(( state = TestStates.initialState, action) => state);
   const div = document.createElement('div');
   ReactDOM.render(<Provider store={store}><LogonComponent /></Provider>, div);
   ReactDOM.unmountComponentAtNode(div);
@@ -26,6 +21,7 @@ it('renders without crashing (Smoke Test)', () => {
 
 it('renders like the last time (snapshots)', () => {
 
+  const store = createStore(( state = TestStates.initialState, action) => state);
   // const cb = (u:string,p:string) => { return; };
   const wrapper =  Enzyme.mount(<Provider store={store}><LogonComponent /></Provider>);
 

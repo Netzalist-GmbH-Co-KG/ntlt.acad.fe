@@ -4,16 +4,10 @@ import { Provider } from 'react-redux';
 import { create as createTestRenderer } from 'react-test-renderer';
 import { createStore } from 'redux';
 import App from './App';
-import { IState } from './state/IState'
-
-let store:any = null;
-
-beforeEach( () =>{
-  store = createStore<IState, any, any, any>((state = { demo: { applicationStart: "2014-01-01", reducerCounter: 0}, currentSession: null }, action) => state);
-});
-
-
+import * as TestStates from "./fixtures/testStates"
+ 
 it('renders without crashing (Smoke Test)', () => {
+  const store = createStore(( state = TestStates.initialState, action) => state);
   const div = document.createElement('div');
   
   ReactDOM.render(<Provider store={store}><App version="test" /></Provider>, div);
@@ -21,7 +15,7 @@ it('renders without crashing (Smoke Test)', () => {
 });
 
 it('renders like the last time (snapshots)', () => {
-
+  const store = createStore(( state = TestStates.initialState, action) => state);
   const component = createTestRenderer(
     <Provider store={store}><App version="test3" /></Provider>
   );

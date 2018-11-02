@@ -11,7 +11,7 @@ export interface IOwnProps {
 
 // tslint:disable-next-line:no-empty-interface
 interface IStateProps {
-    currentSession: ISession | null
+    currentSession: ISession
 }
 
 interface IDispatchProps {
@@ -41,7 +41,7 @@ class LogonComponent extends React.Component<Props, IInternalState> {
                 <label htmlFor="inputPassword" className="sr-only">Password</label>
                 <input onChange={this.passwordChanged} type="password" id="password" className="form-control" placeholder="Password" required={true} />
                 <button id="logonButton" className="btn btn-lg btn-primary btn-block" onClick={this.logonClick}>Sign in</button>
-                <label className={ !this.props.currentSession ? "badge badge-danger" : "badge badge-success"}>{this.props.currentSession ? this.props.currentSession.currentUser : "Not logged in"}</label>
+                <label className="badge badge-danger">{this.props.currentSession.lastLogOnErrorMessage}</label>
             </div>
         );
     }
